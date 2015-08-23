@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+   <frontend>
+    <layout>
+            <updates>
+                <page>
+                    <file>page.xml</file>
+                </page>
+            </updates>
+        </layout>
+    </frontend>
+</config>

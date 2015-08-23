@@ -1,0 +1,56 @@
+#summary The page explain the zz how to dispatch to the action of controller by the uri.
+
+= Introduction =
+
+The zz use the filter to accept use request, and the filter get the request parameters then dispatch to action method of controller to process, 
+
+
+= Details =
+
+please refer to [URIRole] and [Module]
+
+
+ * if you type the "htp://host:port/context/zz/^1^home/^2^test/^3^index" in the browser. The filter will automatic dispatch to indexAction method of com.test.home.controllers.Test
+{{{
+package com.test.home.controllers;
+
+import com.youthor.zz.common.c.controller.FrontendController;
+
+public class TestController extends FrontendController {
+     public void indexAction() {
+         System.out.println("i am here");
+         this.loadLayout();
+         this.renderLayout();
+     }
+}
+}}}
+
+ * if you type the "htp://host:port/context/zz/^1^home/^2^subpackage_test/^3^index" in the browser. The filter will automatic dispatch to indexAction method of com.test.home.controllers.subpackage.Test
+{{{
+package com.test.home.controllers.subpackage;
+
+import com.youthor.zz.common.c.controller.FrontendController;
+
+public class TestController extends FrontendController {
+     public void indexAction() {
+         System.out.println("i am here");
+         this.loadLayout();
+         this.renderLayout();
+     }
+}
+}}}
+
+ * the "^1^home" part value is "home" which is equal the follow xml "home" node.
+{{{
+    <modules>
+        <home>
+            <active>true</active>
+            <package>com.test.home</package>
+        </home>
+    </modules>
+}}}
+ * the "^2^subpackage_test" part value is "subpackage_test" which is a part class name.The full class name is "package" node value + "subpackage_test", so the full class name is "com.test.home.subpackage.Test" ,"t" will automatic become "T"
+
+ * the "^3^index" part value is "index" which is a part method name of  "com.test.home.subpackage_Test" ,and the full method name is "indexAction".
+
+ * if you type the "htp://host:port/context/zz/^1^home/^2^test" in the browser， the same you type "htp://host:port/context/zz/^1^home/^2^test/^3^index".The ^3^ part default value is "index".

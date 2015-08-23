@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<layout>
+    <home_test_index>
+        <reference name="content">
+            <block type="home/product" name="home.product" as="product" template="home/product.vm">
+                <action method="addJs" toHead="true"><script>prototype/prototype.js</script></action>
+            </block>
+        </reference>
+    </home_test_index>
+</layout>

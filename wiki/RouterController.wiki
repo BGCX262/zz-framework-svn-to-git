@@ -1,0 +1,45 @@
+#summary 本文介绍Zz中的路由控制器.
+
+= Introduction =
+
+请先阅读FrontController.
+
+路由控制器相当leader那个角色，他的主要责任是接收项目经理(FrontController)的请求，然后找适当的人去执行或者修改请求返回给项目经理。
+
+  * Zz框架预设三个路由控制器.
+  * Zz中路由控制器都为全局单例，注意线程安全问题。
+
+
+== Standard 标准路由控制器 ==
+  * com.youthor.zz.common.c.router.Standard实现，排在第一位。
+  * 主要功能是查找用户控制器，并把请求给用户控制器
+
+== Cms 路由控制器 == 
+  * com.youthor.zz.cms.controller.CmsRouter实现.排在第二位。
+  * 当Standard路由控制器处理不了，会进入Cms路由控制器.
+  * Cms路由控制器修改请求，以使Standard路由控制器能处理，并把控制权交给FrontController.下一轮询问时标准路由控制器可以处理此请求。
+  * Cms 路由控制器是由FrontController中init方法中的侦听器加入的。在cms模块的config.xml中存在如下配置.
+{{{
+        <events>
+            <frontController_init_routes>
+                <observers>
+                    <cmsRouter>
+                        <class>com.youthor.zz.cms.controller.CmsRouter</class>
+                        <method>initControllerRouters</method>
+                    </cmsRouter>
+                </observers>
+            </frontController_init_routes>
+        </events>
+}}}
+
+== Default 默认路由控制器 == 
+  * com.youthor.zz.common.c.router.Default实现，排在最后一位。
+  * 当所有路由控制器都处理不了时，由此路由控制器执行。
+  * 默认路由控制器修改请求，以使Standard路由控制器能处理，并把控制权交给FrontController.下一轮询问时标准路由控制器可以处理此请求。
+  * 默认路由控制器主要处理页面不到(404)错误。
+
+== 用户自定义路由控制器 == 
+  * 用户可以使用加入Cms 路由控制器方式加入自己的路由控制器。
+  * 注意加入顺序为模块依赖的顺序。
+  * 必须继承com.youthor.zz.common.c.router.Abstract。
+  

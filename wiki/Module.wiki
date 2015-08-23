@@ -1,0 +1,32 @@
+#summary This page explain zz how to create the simple module.
+
+= Introduction =
+
+System is divided into modules, each module contains a certain set of features, and provide interfaces to other modules to access the internal functions or data.
+
+
+= Details =
+
+== The module package structure ==
+  [http://zz-framework.googlecode.com/svn/trunk/www/module_strutture.jpg]
+
+  The main package is "com.test.home", and the zz module only five subpackages under the mian package.
+
+   # controllers 
+   # blocks
+   # models
+   # helpers
+   # etc  
+
+== How to assembly the module to zz ==
+  [http://zz-framework.googlecode.com/svn/trunk/www/module_ass.jpg]
+
+you can create xml file or use the exist xml file, and add the follow xml code to xml file.
+{{{
+    <modules>
+        <home>
+            <active>true</active>
+            <package>com.test.home</package>
+        </home>
+    </modules>
+}}}

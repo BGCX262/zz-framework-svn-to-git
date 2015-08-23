@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <home>
+            <active>true</active>
+            <package>com.test.home</package>
+        </home>
+    </modules>
+</config>

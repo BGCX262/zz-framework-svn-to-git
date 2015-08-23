@@ -1,0 +1,6 @@
+DOM4J包下载：
+http://www.dom4j.org/
+
+使用参考:
+http://zhidao.baidu.com/question/50808499.html
+http://xhy0422.javaeye.com/blog/50235

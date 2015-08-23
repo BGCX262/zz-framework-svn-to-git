@@ -1,0 +1,21 @@
+#summary 本文介绍Zz中的用户控制器.
+
+= Introduction =
+
+Zz中用户控制器相当团队中的team member,是一个真正做事，任劳任怨的人。
+== 主要职责 ==
+  * 接收leader(路由控制器)的请求，先自行检查一下是否能真正执行。
+    # 如果能执行，则执行真正的业务逻辑。
+    # 不能执行，可以修改请求，同时把request中的isDispatched修改成false.
+    # 执行真正的业务逻辑后，要调用本请求Layout系统。
+
+
+== 分类 ==
+  企业信息化系统一般是指企业内部的OA,仓库管理，人事管理等，主要解决企业内部信息化建设。<br>
+  互联网主要是指大众都可以使用的网站，如电子商务网站，cms系统等。<br>
+  在开发这两种系统时，企业信息化系统一般不分前台/后台。不管是一般用户还是管理员一般都使用同一个界面。但是对互联网应用来说一般是分前台和后台的，大众用户和管理员使用不同的界面。为了兼两种应用的开发，Zz框架对用户控制器作了如下分类 
+
+  * 用户控制器分成两大类，前端用户控制器和后端用户控制器
+  * 前端用户控制器继承com.youthor.zz.common.c.controller.FrontendController
+  * 后端用户控制器继承com.youthor.zz.common.c.controller.BackendController
+  * 两个类的主要区别是设置不同的area.Zz系统中area主要有三个:global、frontend、backend

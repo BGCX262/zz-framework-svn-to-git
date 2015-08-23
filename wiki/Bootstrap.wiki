@@ -1,0 +1,24 @@
+#summary 本文介绍Zz中的Bootstrap(引导程序)
+#labels Bootstrap
+
+= Introduction =
+
+在Zz框架中，Bootstrap是唯一与web容器中相关的部份，它由servlet或者Filter担任，Zz框架本身提供这两部份的代码实现，他主要功能是：
+  * 初始化Zz模块化配置文件
+  * 对web容器中相关内置对象如：request,response,session等转化成Zz中相应的类
+  * 调用ZzApp.run()方法转发请求
+  * 向前台输入生成的html段(或者整个页面)
+  * 清除Zz中线程单例对象
+当然如果用户想重写这一部份也是可以的，但要注意他实现的功能。
+
+
+= Details =
+
+由servlet担任Bootstrap
+  * 程序内容(com.youthor.web.filter.`*`)
+  * <a href="http://code.google.com/p/zz-framework/wiki/URIRole" target="_blank">相应配置文件(web.xml)</a> 
+
+
+由Filter担任Bootstrap
+  * 程序内容(com.youthor.web.FrontServlet)
+  * <a href="http://code.google.com/p/zz-framework/wiki/URIRole" target="_blank">相应配置文件(web.xml)</a> 

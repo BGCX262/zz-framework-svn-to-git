@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <resources>
+            <default_setup>
+                <connection>
+                    <type><![CDATA[core/resource_mysql]]></type>
+                    <url><![CDATA[jdbc:mysql://localhost:3306/rd_20110129?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull]]></url>
+                    <username><![CDATA[root]]></username>
+                    <password><![CDATA[abc123]]></password>
+                    <!-- 如果为JDBC表示采用JDBC方式，默认采用数据源， max_pool_size 至 acquire_retry_attempts 为数据池的配置，
+                                                                  对JDBC无效， 如果采用JNDI方式，则取jndi_name属性     -->
+                    <conn_type><![CDATA[datasource]]></conn_type>
+                    <jndi_name><![CDATA[]]></jndi_name>
+                    <max_pool_size><![CDATA[100]]></max_pool_size>
+                    <min_pool_size><![CDATA[10]]></min_pool_size>
+                    <max_idle_time><![CDATA[30]]></max_idle_time>
+                    <initial_pool_size><![CDATA[10]]></initial_pool_size>
+                    <acquire_increment><![CDATA[2]]></acquire_increment>
+                    <acquire_retry_attempts><![CDATA[30]]></acquire_retry_attempts>
+                    <active>1</active>
+                </connection>
+            </default_setup>
+        </resources>
+        <cache>
+            <type>core/cache_file</type>
+            <id_prefix>zz</id_prefix>
+            <request_processors>core/cache_processor</request_processors>
+            <lifetime>3600</lifetime>
+            <options>
+            </options>
+        </cache>
+        <session_save><![CDATA[files]]></session_save>
+    </global>
+    
+      <default>
+       <design>
+          <template_engine>core/template_velocity_zzVelocity</template_engine>
+          <frontend>
+              <package>default</package>
+              <theme>default</theme>
+          </frontend>
+       </design>
+        <system>
+            <filesystem>
+                <base></base>
+                <design>WEB-INF/design</design>
+                <locale>WEB-INF/locale</locale>
+                <etc>WEB-INF/etc</etc>
+                <media>media</media>
+                <upload>media/upload</upload>
+                <skin>skin</skin>
+                <cache>WEB-INF/var/cache</cache>
+                <session>WEB-INF/var/session</session>
+                <tmp>WEB-INF/var/tmp</tmp>
+                <export>WEB-INF/var/export</export>
+                <class>WEB-INF/classes</class>
+                <lib>WEB-INF/lib</lib>
+            </filesystem>
+        </system>
+    </default>
+</config>

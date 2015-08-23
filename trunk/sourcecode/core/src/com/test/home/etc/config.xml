@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <frontend>
+        <layout>
+            <updates>
+                <home>
+                    <file>home.xml</file>
+                </home>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+       
+        
+        <models>
+            <home>
+                <resourceModel>dao_mysql</resourceModel>
+                <entities>
+                    <profile>
+                        <table>rd_my_profile</table>
+                    </profile>
+                    <option>
+                        <table>sales_flat_quote_item_option</table>
+                    </option>
+                </entities>
+            </home>
+        </models>
+    </global>
+</config>

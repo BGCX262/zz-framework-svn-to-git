@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<layout>
+    <cms_page>
+        <reference name="content">
+            <block type="cms/page" name="cms_page"/>
+        </reference>
+    </cms_page>
+</layout>

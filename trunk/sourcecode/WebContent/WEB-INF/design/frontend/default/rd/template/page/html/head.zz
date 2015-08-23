@@ -1,0 +1,8 @@
+  <title>$this.getTitle()</title>
+  <meta http-equiv="Content-Type" content="$this.getContentType()" />
+  <meta name="description" content="$this.getDescription()" />
+  <meta name="keywords" content="$this.getKeywords()" />
+  <meta name="robots" content="$this.getRobots()" />
+  <link rel="icon" href="<?php echo $this->getSkinUrl('favicon.ico') ?>" type="image/x-icon" />
+  <link rel="shortcut icon" href="<?php echo $this->getSkinUrl('favicon.ico') ?>" type="image/x-icon" />
+$this.getChildHtml("skin")

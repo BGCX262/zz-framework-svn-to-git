@@ -1,0 +1,32 @@
+#set($skinItems = $this.getSkinItems())
+#foreach($zzObject in $skinItems)
+#set($type = $zzObject.getData("type"))
+#set($name = $zzObject.getData("name"))
+#if("js" == $type)
+  <script type="text/javascript" src="$name" ></script>
+#elseif("skin_css" == $type)
+#set($params = $zzObject.getData("params"))
+#if ($params.get("media"))
+#set($media = $params.get("media"))
+#else
+#set($media = "all")
+#end
+#set($ifConfig = $zzObject.getData("ifConfig"))
+#if ($ifConfig != "") 
+  <!--[if $ifConfig]>
+#end
+  <link rel="stylesheet" type="text/css" href="$name" media="$media"/>
+#if ($ifConfig != "") 
+  <![endif]-->
+#end
+#elseif("skin_js" == $type)
+#set($ifConfig = $zzObject.getData("ifConfig"))
+#if ($ifConfig != "") 
+  <!--[if $ifConfig]>
+#end
+  <script type="text/javascript" src="$name" ></script>
+#if ($ifConfig != "") 
+  <![endif]-->
+#end
+#end
+#end

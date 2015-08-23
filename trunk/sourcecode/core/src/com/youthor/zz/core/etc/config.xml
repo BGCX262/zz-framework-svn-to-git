@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+    </global>
+
+    <frontend>
+        
+    </frontend>
+
+    <default>
+        <web>
+            <unsecure>
+                <base_url><![CDATA[http://127.0.0.1:8081/zz/]]></base_url>
+                <base_js_url>js/</base_js_url>
+                <base_skin_url>skin/</base_skin_url>
+                <base_media_url>media/</base_media_url>
+            </unsecure>
+        </web>
+    </default>
+</config>

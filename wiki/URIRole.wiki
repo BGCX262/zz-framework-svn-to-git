@@ -1,0 +1,58 @@
+#summary This page explain the uri role of zz framework.
+#labels Phase-Deploy,Phase-Implementation
+
+= Introduction =
+
+The zz supports two uri role, like the follow: 
+  # *htp://host:port/context/zz/home/test/index* 
+  # *htp://host:port/context/home/test/index.zz* 
+
+you can configure the "zz" if you need.
+
+= How to confige the uri role =
+
+   == URI role 1: ==
+      * Confige the follow code in web.xml
+   {{{
+    <filter>
+        <filter-name>FrontFilter</filter-name>
+        <filter-class>com.youthor.zz.filter.FrontFilter</filter-class>
+        <init-param>
+            <param-name>suffix</param-name>
+            <param-value>/zz</param-value>
+        </init-param>
+    </filter>
+    
+     <filter>
+        <filter-name>DispatchFilter</filter-name>
+        <filter-class>com.youthor.zz.filter.DispatchFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>DispatchFilter</filter-name>
+        <url-pattern>/zz/*</url-pattern>
+    </filter-mapping>
+   }}}
+
+    == URI role 2: ==
+      * Confige the follow code in web.xml
+   {{{
+    <filter>
+        <filter-name>FrontFilter</filter-name>
+        <filter-class>com.youthor.zz.filter.FrontFilter</filter-class>
+        <init-param>
+            <param-name>suffix</param-name>
+            <param-value>.zz</param-value>
+        </init-param>
+    </filter>
+    
+     <filter>
+        <filter-name>DispatchFilter</filter-name>
+        <filter-class>com.youthor.zz.filter.DispatchFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>DispatchFilter</filter-name>
+        <url-pattern>*.zz</url-pattern>
+    </filter-mapping>
+   }}}

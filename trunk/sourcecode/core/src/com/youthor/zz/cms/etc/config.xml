@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+    <frontend>
+     <layout>
+            <updates>
+                <cms>
+                    <file>cms.xml</file>
+                </cms>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <cms>
+                <resourceModel>dao_mysql</resourceModel>
+                <entities>
+                    <block>
+                        <table>cms_block</table>
+                    </block>
+                    <page>
+                        <table>cms_page</table>
+                    </page>
+                </entities>
+            </cms>
+        </models>
+
+        <events>
+            <frontController_init_routes>
+                <observers>
+                    <cmsRouter>
+                        <class>com.youthor.zz.cms.controller.CmsRouter</class>
+                        <method>initControllerRouters</method>
+                    </cmsRouter>
+                </observers>
+            </frontController_init_routes>
+        </events>
+
+     </global>
+</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <core>
+            <active>true</active>
+            <package>com.youthor.zz.core</package>
+        </core>
+        <page>
+            <active>true</active>
+            <package>com.youthor.zz.page</package>
+            <depends>
+                <core/>
+            </depends>
+        </page>
+        <cms>
+            <active>true</active>
+            <package>com.youthor.zz.cms</package>
+            <depends>
+                <page/>
+            </depends>
+        </cms>
+    </modules>
+</config>
